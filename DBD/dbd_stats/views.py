@@ -1,12 +1,9 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from .models import Game
-from django.template import loader
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, CreateView
 from .forms import Game_form_entree
 import datetime
 def index(request):
@@ -19,11 +16,10 @@ def index(request):
 def get_game_data(request):
     initial_data ={"pub_date":datetime.datetime.now()}
     if request.method == "POST": #data send by user
-        # create a form instance and populate it with data from the request:
-        form = Game_form_entree(request.POST,initial=initial_data)
+        form = Game_form_entree(request.POST,initial=initial_data)        # create a form instance and populate it with data from the request:
+
         # check whether it's valid:
         if form.is_valid():
-            # process the data in form.cleaned_data as required
             form.save() #safe data to database
             # redirect to a new URL:
             return HttpResponseRedirect("/thanks/")
