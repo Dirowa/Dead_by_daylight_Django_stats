@@ -1,0 +1,9 @@
+{% if latest_question_list %}
+    <ul>
+    {% for game in latest_question_list %}
+        <li><a href="/dbd_stats/{{ game.id }}/">{{ game.killer }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

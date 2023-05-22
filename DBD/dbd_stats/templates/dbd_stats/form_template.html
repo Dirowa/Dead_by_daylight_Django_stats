@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <form action="{% url 'submit_form' %}" method="post">
+        {% csrf_token %}
+        <head>
+            <title>Dead By daylight Match stats form</title>
+        </head>
+            <body>
+                <h1>Dead by daylight Match stats form</h1>
+                {{ dbd_form.as_ul }}
+                <input type="submit" value="Save new dbd data">
+            </body>
+    </form>
+</html>
