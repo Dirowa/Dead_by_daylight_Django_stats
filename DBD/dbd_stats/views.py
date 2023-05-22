@@ -7,10 +7,7 @@ from django.shortcuts import render
 from .forms import Game_form_entree
 import datetime
 def index(request):
-
-    latest_question_list = Game.objects.order_by("-pub_date")[:5]
-    context = {"latest_question_list": latest_question_list}
-    return render(request, "dbd_stats/index.html", context)
+    return render(request, "dbd_stats/welcome_page.html")
 
 
 def get_game_data(request):
