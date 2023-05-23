@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponseRedirect
-import time
+from rest_framework.decorators import api_view
 from django.shortcuts import render
 from .forms import Game_form_entree
 import datetime
@@ -43,10 +43,10 @@ def thanks(request):
 def statistics(request):
     return render(request, "dbd_stats/statistics.html")
 
-@csrf_exempt
-def game_list(request):
+@api_view(["GET","POST"])
+def game_list(request,format=None):
     if request.method == "GET":
-        game = Game.object.all()
+        game = Game.objects.all()
         serializer = GameSerializer(game,many=True)
         return(JsonResponse(serializer.data,safe=False))
 
@@ -58,7 +58,8 @@ def game_list(request):
             return JsonResponse(serializer.data,status=201)
         return JsonResponse(serializer.errors, status=400)
 
-def game_detail(request, pk):
+@api_view(['GET', 'PUT', 'DELETE'])
+def game_detail(request, pk,format=None):
     """
     Retrieve, update or delete a code snippet.
     """
