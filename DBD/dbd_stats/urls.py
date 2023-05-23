@@ -1,9 +1,10 @@
 from django.urls import path
 
 from . import views
-from .views import get_game_data
 
+app_name = "DBD_tracker"
 urlpatterns = [
     path("", views.index, name="index"),
-    path("add_dbd_data",get_game_data, name="submit_form"),
+    path("submit_data", views.get_game_data, name="submit_data"),
+    path("submit_data/thanks", views.thanks, name="Thanks")
 ]

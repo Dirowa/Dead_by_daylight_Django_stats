@@ -1,14 +1,44 @@
+
 <!DOCTYPE html>
-<html>
-<head>
-  <title>HTML Elements Reference</title>
-</head>
-<body>
+    {% load static %}
 
-<h1>Welkom add the DBD tracker</h1>
-<li><a href="/dbd_tracker/add_dbd_data">Submit DBD data!</a></li>
-<li><a href="/dbd_tracker/add_dbd_data">View results</a></li>
+    <html>
+    <head>
+        <title>Dead by Daylight Django App</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'dbd_stats/style.css' %}">
+    </head>
+    <body>
+        <header>
+            <h1 class="logo">Dead by Daylight Tracker</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Statistics</a></li>
+                    <li><a href="/dbd_tracker/submit_data">Submit Data</a></li>
+                </ul>
+            </nav>
+        </header>
 
+        <div class="container">
+            <section id="hero">
+                <h2>Welcome to Dead by Daylight tracker!</h2>
+                <p>Track and analyze your gameplay data.</p>
+            </section>
 
-</body>
+            <section id="statistics">
+                <h2>Statistics</h2>
+                <!-- Display statistics here -->
+            </section>
+
+            <section id="submit-data">
+                <h2>Submit Game Data</h2>
+                <!-- Display the form for submitting game data here -->
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2023 Dead by Daylight Tracker. All rights reserved.</p>
+        </footer>
+    </body>
 </html>
+

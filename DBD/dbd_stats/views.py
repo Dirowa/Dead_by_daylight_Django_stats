@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponseRedirect
-from .models import Game
+import time
 from django.shortcuts import render
 from .forms import Game_form_entree
 import datetime
@@ -19,7 +19,7 @@ def get_game_data(request):
         if form.is_valid():
             form.save() #safe data to database
             # redirect to a new URL:
-            return HttpResponseRedirect("/thanks/")
+            return HttpResponseRedirect("submit_data/thanks")
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -27,3 +27,7 @@ def get_game_data(request):
 
     context = {"dbd_form": form}
     return render(request, "dbd_stats/form_template.html", context=context)
+
+def thanks(request):
+
+    return  render(request, "dbd_stats/form_succes.html")

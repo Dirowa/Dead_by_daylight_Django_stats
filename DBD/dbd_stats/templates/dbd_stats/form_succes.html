@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+    {% load static %}
+
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Thanks for Submitting!</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'dbd_stats/style.css' %}">
 </head>
 <body>
+    <div class="container">
+        <h1>Thanks for Submitting!</h1>
+        <p>Your game data has been successfully submitted.</p>
+        <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/kApu770jYmBdpzx81U" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/xbox-game-xbox-series-x-s-kApu770jYmBdpzx81U"></p>
+        <style>
+        .submit-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+        </style>
+
+        <a class="submit-button" href="/dbd_tracker/">Return home</a>
+    </div>
 </body>
-</html>
