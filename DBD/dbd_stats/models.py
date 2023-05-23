@@ -85,3 +85,5 @@ class Game(models.Model):
     def max_gens(self):
         return self.Gens_completed <= 5
 
+    class Meta:
+        ordering = ["pub_date"]
