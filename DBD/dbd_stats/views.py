@@ -31,3 +31,7 @@ def get_game_data(request):
 def thanks(request):
 
     return  render(request, "dbd_stats/form_succes.html")
+
+#adding
+def statistics(request):
+    return render(request, "dbd_stats/statistics.html")
