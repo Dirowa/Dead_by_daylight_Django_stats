@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-
+from pygments.lexers import get_lexer_by_name
+from pygments.formatters.html import HtmlFormatter
+from pygments import highlight
 
 killer_choices = (
     ("Evan MacMillan","The Trapper"),
@@ -87,3 +89,4 @@ class Game(models.Model):
 
     class Meta:
         ordering = ["pub_date"]
+
