@@ -1,46 +1,61 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-from pygments.lexers import get_lexer_by_name
-from pygments.formatters.html import HtmlFormatter
-from pygments import highlight
+
 
 killer_choices = (
-    ("Evan MacMillan","The Trapper"),
-    ("Max Thompson Jr","The Hillbilly"),
-    ("Lisa Sherwood","The Hag"),
-    ("Anna","Huntress"),
-    ("Micheal Myers","The Shape"),
-    ("Adiris","The Plague"),
-    ("Rin Yamaoka","The spirit"),
-    ("Kazan Yamaoka","The Oni"),
-    ("Frank","The Legion"),
-    ("Carmina Mora","The Artist"),
-    ("Danny Johnson","ghost face"),
-    ("Bubba Sawyer","The Cannibal"),
-    ("Amanda Sawyer","The pig"),
-    ("Herman Carter","The Doctor"),
-    ("Sally Smithson","The Nurse"),
+    ("The Trapper","The Trapper"),
+    ("The Hillbilly","The Hillbilly"),
+    ("The Hag","The Hag"),
+    ("Huntress","Huntress"),
+    ("Micheal Myers","Micheal Myers",),
+    ("The Plague","The Plague"),
+    ("The spirit","The spirit"),
+    ("The Oni","The Oni"),
+    ("The Legion","The Legion"),
+    ("The Artist","The Artist"),
+    ("ghost face","ghost face"),
+    ("The Cannibal","The Cannibal"),
+    ("The pig","The pig"),
+    ("The Doctor","The Doctor"),
+    ("The Nurse","The Nurse"),
     ("Nemesis","Nemesis"),
     ("Demogorgon", "Demodogo"),
-    ("Ji-woon Hak","The Trickster"),
-    ("Talbot Grimes","The Blight"),
-    ("Elliot Spencer / pinhead","The Cenobite"),
-    ("Freddy Krueger","Nightmare"),
-    ("Jeffrey Hawk","The Clown"),
-    ("Phillip Ojomo","The Wraith"),
-    ("Victor & Charlotte","The Twins"),
-    ("Pyramid head","Executioner"),
-    ("Caleb Quin","DeathSlinger"),
-    ("Tarhos Kovacs","The knight"),
-    ("Adrianaimai","The skull merchant"),
+    ("The Trickster","The Trickster"),
+    ("The Blight","The Blight"),
+    ("The Cenobite","The Cenobite"),
+    ("Freddy Krueger","Freddy Krueger"),
+    ("The Clown","The Clown"),
+    ("The Wraith","The Wraith"),
+    ("The Twins","The Twins"),
+    ("Pyramid head","Pyramid head"),
+    ("DeathSlinger","DeathSlinger"),
+    ("The knight","The knight"),
+    ("The skull merchant","The skull merchant"),
     ("Dredge","Dredge"),
-    ("Albert Wesker","Mastermind"),
-    ("Sadoko Yamamura","The Onryo"))
+    ("Mastermind","Mastermind"),
+    ("The Onryo","The Onryo"))
 
 map_choices=(
     ("Raccoon City","Raccoon City"),
-    ("Silent Hill","Midwitch elementary school"),
-    ("Garden of Joy","Garden of joy")
+    ("Midwitch elementary school","Midwitch elementary school"),
+    ("Garden of Joy","Garden of joy"),
+    ("The MacMillan Estate","The MacMillan Estate"),
+    ("Autohaven Wreckers","Autohaven Wreckers"),
+    ("Coldwind Farm","Coldwind Farm"),
+    ("Crotus Prenn Asylum","Crotus Prenn Asylum"),
+    ("Haddonfield","Haddonfield"),
+    ("Backwater Swamp","Backwater Swamp"),
+    ("Léry's Memorial Institute","Léry's Memorial Institute"),
+    ("Red Forest","Red Forest"),
+    ("Springwood","Springwood"),
+    ("Gideon Meat Plant","Gideon Meat Plant"),
+    ("Yamaoka Estate","Yamaoka Estate"),
+    ("Ormond","Ormond"),
+    ("Grave of Glenvale","Grave of Glenvale"),
+    ("Silent Hill","Silent Hill"),
+    ("Forsaken Boneyard","Forsaken Boneyard")
+
+
 )
 
 faul_play_Choices = (
@@ -66,7 +81,7 @@ class Game(models.Model):
     mori = models.BooleanField(default=False)
     Insta_down = models.BooleanField(default=False)
     sweat = models.IntegerField(default=5,validators=[MinValueValidator(0),MaxValueValidator(10)])
-    Game_map = models.CharField(max_length=24, choices=map_choices, default="Raccoon City")
+    Game_map = models.CharField(max_length=26, choices=map_choices, default="Raccoon City")
     deaths =  models.IntegerField(default=4,validators=[MinValueValidator(0),MaxValueValidator(4)])
     Gens_completed =  models.IntegerField(default=0,validators=[MinValueValidator(0),MaxValueValidator(5)])
     Faul_play = models.CharField(max_length=20, choices=faul_play_Choices, default="NA")

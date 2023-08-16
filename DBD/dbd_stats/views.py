@@ -53,9 +53,7 @@ def statistics(request):
     serializer = GameSerializer(Game.objects.all(), many=True)
     data = (serializer.data)
     data = CreateData((data))
-    print(data.data)
-    games_a_day = data.get_plot_histogram()
-    context = {"games_a_day": games_a_day}
+    context = {"games_a_day": data.get_plot_histogram()}
 
     return render(request, "dbd_stats/statistics.html",context=context)
 
